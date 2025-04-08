@@ -27,7 +27,7 @@ Follow the directions below to set up the script.
         - `TEAM_CSV_FILEPATH` - The relative filepath to the CSV file that defines the teams and users
             - The CSV must contain a column titled `email` that contains the email of the Lucid user to be added to teams
             - The CSV must contain a column titled `teams` that contains a comma separated string of teams that the user defined in the same row should be added to
-            - An example CSV containing these fields can be found in `example_teams.csv`
+                - An example CSV containing these fields can be found in `examples/example_teams.csv`
     - Note: Optional Field Definitions
         - `REMOVE_EXISTING_USERS` - This flag defines the behavior for the event that a Lucid team already exists with the same name
             - `true` - The script will remove any users from the specified team that are not defined in the CSV
@@ -52,7 +52,7 @@ Follow the directions below to set up the script.
                 ...
             ]
             ```
-            - See `example_folders.json` for a more defined example of what this could look like.
+            - See `examples/example_folders.json` for a more defined example of what this could look like.
 3. Run the script manually via python
     - Example: `python ./importteams.py`
     - If the data is configured properly, the script will print a statement noting it as complete along with any errors that may have occurred.
