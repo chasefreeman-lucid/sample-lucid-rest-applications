@@ -121,4 +121,4 @@ print("CSV successfully ingested")
 
 process_teams(team_data)
 
-print("Team creation script compelte")
+print("Team creation script complete")

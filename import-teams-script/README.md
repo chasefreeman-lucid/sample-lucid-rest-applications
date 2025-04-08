@@ -1,6 +1,6 @@
 # LUCID TEAMS CREATION SCRIPT
 
-## Helper script to automatically generate teams with specified sets of users and custom folder structure. This users the Lucid Public API to query and create teams and optional folder structure.
+## Helper script to automatically generate teams with specified sets of users and custom folder structure. This uses the Lucid Public API to query and create teams and optional folder structure.
 
 # Setup.
 
@@ -19,14 +19,15 @@ Follow the directions below to set up the script.
             - Folder: Edit
             - User: View
     - Click `Generate Api Key` and copy the generated key. You will not be able to see it again
-    - Note: An OAuth2 token with the `teams:admin`, `account.user:readonly`, `folder`, and `user.profile` can be used in place of the API Key
+    - Note: An [OAuth2 token](https://developer.lucid.co/reference/obtaining-an-access-token) with the `teams:admin`, `account.user:readonly`, `folder`, and `user.profile` can be used in place of the API Key
 2. Open the `config.ini` file and set the following required values:
     - TOKENS
         - `KEY` - The API Key or equivalent token created during step 2
     - FILES
         - `TEAM_CSV_FILEPATH` - The relative filepath to the CSV file that defines the teams and users
             - The CSV must contain a column titled `email` that contains the email of the Lucid user to be added to teams
-            - The CSV must contain a column tilted `teams` that contains a comma separated string of teams that the user defined in the same row should be added to
+            - The CSV must contain a column titled `teams` that contains a comma separated string of teams that the user defined in the same row should be added to
+            - An example CSV containing these fields can be found in `example_teams.csv`
     - Note: Optional Field Definitions
         - `REMOVE_EXISTING_USERS` - This flag defines the behavior for the event that a Lucid team already exists with the same name
             - `true` - The script will remove any users from the specified team that are not defined in the CSV
@@ -51,6 +52,7 @@ Follow the directions below to set up the script.
                 ...
             ]
             ```
+            - See `example_folders.json` for a more defined example of what this could look like.
 3. Run the script manually via python
     - Example: `python ./importteams.py`
     - If the data is configured properly, the script will print a statement noting it as complete along with any errors that may have occurred.

@@ -12,7 +12,7 @@ def create_team(token, name, initial_users, team_type):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
         "Lucid-Request-As": "admin",
     }
 
@@ -38,7 +38,7 @@ def get_teams(token):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
         "Lucid-Request-As": "admin",
     }
 
@@ -83,7 +83,7 @@ def add_team_users(token, target_team, users):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
         "Lucid-Request-As": "admin",
     }
 
@@ -108,7 +108,7 @@ def get_team_users(token, target_team):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
         "Lucid-Request-As": "admin",
     }
 
@@ -151,7 +151,7 @@ def remove_team_users(token, team_id, users):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
         "Lucid-Request-As": "admin",
     }
 
@@ -179,7 +179,7 @@ def create_folder(token, folderName, parent_folder = None, parent_team = None):
     
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
     }
 
     body = {
@@ -209,7 +209,7 @@ def get_user_profile_id(token):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
     }
 
     response = get(url=request_url, headers=headers)
@@ -230,7 +230,7 @@ def search_users(token, user_emails):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Lucid-Api-Version": f"{1}",
+        "Lucid-Api-Version": "1",
     }
 
     # set a page limit in case of infinite looping error should allow for processing 200,000 users

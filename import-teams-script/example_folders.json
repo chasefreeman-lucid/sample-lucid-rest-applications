@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Sprint Retrospectives",
+        "subFolders": []
+    },
+    {
+        "name": "Planning",
+        "subFolders": [
+            {
+                "name": "Quarterly Plan",
+                "subFolders": []
+            },
+            {
+                "name": "Srint Plans",
+                "subFolders": []
+            }
+        ]
+    },
+    {
+        "name": "OKRs",
+        "subFolders": [
+            {
+                "name": "Drafts",
+                "subFolders": [
+                    {
+                        "name": "FY2025",
+                        "subFolders": []
+                    },
+                    {
+                        "name": "FY2026",
+                        "subFolders": []
+                    },
+                    {
+                        "name": "FY2027",
+                        "subFolders": []
+                    },
+                    {
+                        "name": "FY2028",
+                        "subFolders": []
+                    }
+                ]
+            },
+            {
+                "name": "Completed",
+                "subFolders": [
+                    {
+                        "name": "FY2025",
+                        "subFolders": []
+                    },
+                    {
+                        "name": "FY2026",
+                        "subFolders": []
+                    },
+                    {
+                        "name": "FY2027",
+                        "subFolders": []
+                    },
+                    {
+                        "name": "FY2028",
+                        "subFolders": []
+                    }
+                ]
+            }
+        ]
+    }
+]
