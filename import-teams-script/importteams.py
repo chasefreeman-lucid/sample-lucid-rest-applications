@@ -8,8 +8,8 @@ logger = logging.getLogger("log")
 team_csv_path = configuration.get_value("FILES", "TEAM_CSV_FILEPATH")
 folder_json_path = configuration.get_value("FILES", "FOLDER_STRUCTURE_FILEPATH")
 token = configuration.get_value("TOKENS", "KEY")
-create_custom_folders = configuration.get_value("FLAGS", "CREATE_FOLDER_STRUCTURE")
-remove_existing_users = configuration.get_value("FLAGS", "REMOVE_EXISTING_USERS")
+create_custom_folders = configuration.get_boolean("FLAGS", "CREATE_FOLDER_STRUCTURE")
+remove_existing_users = configuration.get_boolean("FLAGS", "REMOVE_EXISTING_USERS")
 
 
 def ingest_data():
@@ -52,7 +52,7 @@ def process_teams(teams):
     folder_json = None
     if create_custom_folders:
         folder_json = pd.read_json(folder_json_path)
-        if folder_json == None:
+        if folder_json.empty:
             print("Unable to find folder json with specified filepath, stopping without creating teams")
             return
     
@@ -87,10 +87,6 @@ def process_teams(teams):
                     remove_current_user = True
 
                 team_id = lucid.create_team(token, key, users, "open")
-
-                # Prevents a race condition between creating the team and adding the folders
-                # Lucid Teams Teams has been notifed. PLEASE REMOVE BEFORE PUBLISHING
-                sleep(1)
 
                 for folder in folder_json.itertuples():
                     add_folders(folder.name, folder.subFolders, parent_team=team_id)

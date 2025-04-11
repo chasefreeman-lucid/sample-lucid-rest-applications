@@ -31,6 +31,15 @@ def get_value(section, key, allow_none=False):
 
     return config.get(section, key, fallback=None)
 
+def get_boolean(section, key, allow_none=False):
+    value = config.getboolean(section, key)
+    if value is None and allow_none is False:
+        logger.error(
+            f"Could not find value for {key} in section {section}. Exiting early."
+        )
+        sys.exit(1)
+
+    return value
 
 def get_args():
     return args
