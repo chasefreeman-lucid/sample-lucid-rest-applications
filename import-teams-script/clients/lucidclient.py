@@ -63,7 +63,7 @@ def get_teams(token):
         json_data = response.json()
 
         for team in json_data:
-            team_dictionary[f"{team["name"]}"] = team["id"]
+            team_dictionary[f"{team["name"]}"] = {'id': team["id"], 'archived': team["archived"]}
 
 
         link = response.headers.get("Link")

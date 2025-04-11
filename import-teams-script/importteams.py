@@ -60,17 +60,21 @@ def process_teams(teams):
         users = teams[key]
 
         # if team exists
-        existing_team_id = existing_teams.get(key)
-        if existing_team_id != None:
+        existing_team = existing_teams.get(key)
+        if existing_team != None and existing_team['archived'] != None:
+            print(f"Team: {key} exists and is archived, skipping edits")
+            continue
+
+        if existing_team != None and existing_team['id'] != None and existing_team['archived'] == None:
             print(f"Team: {key} already exists in Lucid, adding new users")
-            lucid.add_team_users(token, existing_team_id, users)
+            lucid.add_team_users(token, existing_team['id'], users)
 
             if remove_existing_users:
-                users_on_team = lucid.get_team_users(token, existing_team_id)
+                users_on_team = lucid.get_team_users(token, existing_team['id'])
 
                 users_to_remove = list(set(users_on_team) - set(users))
                 if len(users_to_remove) != 0:
-                    lucid.remove_team_users(token, existing_team_id, users_to_remove)
+                    lucid.remove_team_users(token, existing_team['id'], users_to_remove)
 
             # do not attempt custom folder structure to prevent duplication of folders in a team
             continue
